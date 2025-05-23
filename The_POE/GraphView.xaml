@@ -1,0 +1,104 @@
+﻿<Window x:Class="The_POE.GraphView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_POE"
+        xmlns:DVC="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        mc:Ignorable="d"
+        Title="GraphView" Height="500" Width="1000"
+         WindowStyle ="None"
+        ResizeMode="NoResize"
+        Background="#8E44AD">
+    <Grid>
+        
+        
+        <Grid.RowDefinitions >
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#6C3483"
+              Grid.ColumnSpan="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="DiaCheck"
+                       Foreground="White"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontWeight="Medium"/>
+
+            <TextBlock Text="Your Account"
+                       Foreground="LightCyan"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+
+            <Button Content="Balance"
+                        Foreground="Azure"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Margin="0,0,10,0"
+                        Grid.Column="4"
+                        Grid.ColumnSpan="3">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="FontType/#Kdam"/>
+                        <Setter Property="Background" Value="#ff00ff"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#C12283"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="80" Height="20"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+
+            
+        </Grid>
+
+        <DVC: Canvas.Top="80" Canvas.Left="10" Name="Graph" Width="400" Height="250"  
+Background="LightSteelBlue">
+            <DVC:GraphView.Series>
+                <DVC:LineSeries Title="Salary" Foreground="yellow" IndependentValueBinding="{Binding Path=Key}"  
+DependentValueBinding="{Binding Path=Value}" Loaded="loadDataofLineChart">
+                </DVC:LineSeries>
+                <DVC:LineSeries Title="Expenses" Foreground="red" IndependentValueBinding="{Binding Path=Key}"  
+DependentValueBinding="{Binding Path=Value}" Loaded="loadDataofLineChart">
+                </DVC:LineSeries>
+                <DVC:LineSeries Title="Balance" Foreground="green" IndependentValueBinding="{Binding Path=Key}"  
+DependentValueBinding="{Binding Path=Value}" Loaded="loadDataofLineChart">
+                </DVC:LineSeries>
+            </DVC:GraphView.Series>
+            </DVC:GraphView>
+    </Grid>
+</Window>

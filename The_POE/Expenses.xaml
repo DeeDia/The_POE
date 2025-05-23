@@ -1,0 +1,247 @@
+﻿<Window x:Class="The_POE.Expenses"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:The_POE"
+        mc:Ignorable="d"
+        Title="Expenses" Height="650" Width="820"
+        WindowStyle ="None"
+        ResizeMode="NoResize"
+        Background="#8E44AD">
+
+    <Grid>
+
+        <Grid.RowDefinitions >
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#6C3483"
+              Grid.ColumnSpan="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="DiaCheck"
+                       Foreground="White"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontWeight="Medium"/>
+
+            <TextBlock Text="Your Account"
+                       Foreground="LightCyan"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+
+            <Button Content="Balance"
+                        Foreground="Azure"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Margin="0,0,10,0"
+                        Grid.Column="4"
+                        Grid.ColumnSpan="3">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="FontType/#Kdam"/>
+                        <Setter Property="Background" Value="#ff00ff"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#C12283"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="80" Height="20"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+
+            </Button>
+
+
+        </Grid>
+
+        <StackPanel Grid.Row="1"  Margin="15,15,41,15" Grid.ColumnSpan="2" Width="780">
+
+            <TextBlock  Text="Please fill in form so that Totale net-Income calculated"
+                           Foreground="White"
+                           FontSize="20"
+                           FontWeight="Heavy"
+                           VerticalAlignment="Center"
+                           FontFamily="FontType/#Kdam"
+                           Margin="155,0,-155,23" Height="38"/>
+            <!---->
+            <TextBlock Text="Enter your Gross monthly income:"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           FontFamily="FontType/#Kdam"
+                           Margin="10,5,502,29" Height="26"/>
+
+            <TextBlock Text="Enter your Monthly Tax Deducted :"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           FontFamily="FontType/#Kdam"
+                           Margin="10,5,485,29" Height="26"/>
+
+            <TextBlock Text=" How much per month do you spend on Groceries :"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           FontFamily="FontType/#Kdam"
+                           Margin="10,5,275,29" Height="26"/>
+
+            <TextBlock Text=" How much per month do you spend on Water and Lights :"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           FontFamily="FontType/#Kdam"
+                           Margin="10,5,306,29" Height="26"/>
+
+            <TextBlock Text="How much per month do you spend on Transportation(petrol) :"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           FontFamily="FontType/#Kdam"
+                           Margin="10,5,275,29" Height="26"/>
+
+            <TextBlock Text=" How much per month do you spend on Cell Phone and telephone :"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           FontFamily="FontType/#Kdam"
+                           Margin="10,5,275,29" Height="26"/>
+
+            <TextBlock Text=" How much per month do you spend on Wifi :"
+                           Foreground="White"
+                           FontSize="16"
+                           FontWeight="Medium"
+                           VerticalAlignment="Center"
+                           FontFamily="FontType/#Kdam"
+                           Margin="10,5,275,10" Height="26"/>
+            
+            <StackPanel  Orientation="Horizontal"
+                          Margin="20,15,10,0">
+                <Button Content="Enter"
+                        Foreground="Black"
+                        FontSize="20"
+                        FontWeight="Medium"
+                        Margin="50,30,250,0" Height="47"
+                        x:Name="EnterButton"
+                        Click="EnterButton_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="TextElement.FontFamily" Value="FontType/#Kdam"/>
+                            <Setter Property="Background" Value="#FF00FF97"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C12283"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+                <Button Content="Exit"
+                        Foreground="Black"
+                        FontSize="20"
+                        FontWeight="Medium"
+                        Margin="50,30,500,0" Height="47"
+                        x:Name="ExitButton"
+                        Click="ExitButton_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="TextElement.FontFamily" Value="FontType/#Kdam"/>
+                            <Setter Property="Background" Value="#FF00C5FF"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#C12283"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1"  Margin="120,15,39,15">
+            <!---->
+
+            <TextBox x:Name="Tet01" Grid.Column="1" HorizontalAlignment="Left" Height="41" Margin="26,55,0,0" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.501,0.265"/>
+            <TextBox x:Name="Tet02" Grid.Column="1" HorizontalAlignment="Left" Height="41" Margin="26,10,0,0" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.501,0.265"/>
+            <TextBox x:Name="Tet03" Grid.Column="1" HorizontalAlignment="Left" Height="41" Margin="26,20,0,0" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.501,0.265"/>
+            <TextBox x:Name="Tet04" Grid.Column="1" HorizontalAlignment="Left" Height="41" Margin="26,20,0,0" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.501,0.265"/>
+            <TextBox x:Name="Tet05" Grid.Column="1" HorizontalAlignment="Left" Height="41" Margin="26,20,0,0" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.501,0.265"/>
+            <TextBox x:Name="Tet06" Grid.Column="1" HorizontalAlignment="Left" Height="41" Margin="26,20,0,0" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.501,0.265"/>
+            <TextBox x:Name="Tet07" Grid.Column="1" HorizontalAlignment="Left" Height="41" Margin="26,15,0,0" Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="185" TextChanged="TextBox_TextChanged" RenderTransformOrigin="0.501,0.265"/>
+        </StackPanel>
+        
+
+       
+    </Grid>
+
+</Window>
